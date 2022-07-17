@@ -3,8 +3,17 @@ import mlflow
 from flash.core.data.utils import download_data
 import logging
 
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
+
+import os
+os.environ["AWS_ACCESS_KEY_ID"] = "minio"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
+os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://ai-machine:9000"
+os.environ["MLFLOW_TRACKING_URI"] = "http://ai-machine"
+
+
 
 
 @click.command(help="This program downloads data for finetuning a deep learning model for sentimental classification.")

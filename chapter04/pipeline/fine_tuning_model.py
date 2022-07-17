@@ -7,6 +7,12 @@ import torch
 import torchmetrics
 from flash.text import TextClassificationData, TextClassifier
 
+import os
+os.environ["AWS_ACCESS_KEY_ID"] = "minio"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "minio123"
+os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://ai-machine:9000"
+os.environ["MLFLOW_TRACKING_URI"] = "http://ai-machine"
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
